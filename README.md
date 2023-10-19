@@ -1,4 +1,4 @@
-## console-finances
+## Console Finances
 
 This is a deployed HTML page which uses JavaScript to analyse a financial dataset in the console.
 
