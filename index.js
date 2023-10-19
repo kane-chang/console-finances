@@ -86,3 +86,50 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+// Total Months: Each nested array represents one month, so the total number of nested arrays in finances = total number of months
+var totalMonths = finances.length;
+
+// Net Total: loops through each array in finances and adds profit/losses to netTotal variable
+var netTotal = 0;
+finances.forEach(array => {
+  netTotal += array[1]
+});
+
+// Average Change: Loops through finances array and totals the changes from month to month
+var totalChange = 0;
+
+for (let i = 0; i < totalMonths - 1; i++) {
+  let change = finances[i + 1][1] - finances[i][1]
+  totalChange += change
+};
+
+avgChange = (totalChange / (totalMonths - 1)).toFixed(2); //calculate average and round to 2 decimals
+
+// Greatest increase & decrease: Using the same for loop as before, compares the changes from month to month and reassigns greatest increase/decrease amount and month if it beats the previous assigned value
+var greatestIncrAmt = 0;
+var greatestIncrMonth = "";
+var greatestDecrAmt = 0;
+var greatestDecrMonth = "";
+
+
+for (let i = 0; i < totalMonths - 1; i++) {
+  let change = finances[i + 1][1] - finances[i][1]
+  if (change > greatestIncrAmt) {
+    greatestIncrAmt = change
+    greatestIncrMonth = finances[i + 1][0]
+  }
+  if (change < greatestDecrAmt) {
+    greatestDecrAmt = change
+    greatestDecrMonth = finances[i + 1][0]
+  }
+};
+
+// Financial Report
+console.log("Financial Analysis");
+console.log("----------------");
+console.log("Total Months: " + totalMonths);
+console.log("Total: $" + netTotal);
+console.log("Average Change: " + avgChange);
+console.log("Greatest Increase in Profits/Losses: " + greatestIncrMonth + " ($" + greatestIncrAmt + ")");
+console.log("Greatest Decrease in Profits/Losses: " + greatestDecrMonth + " ($" + greatestDecrAmt + ")");
