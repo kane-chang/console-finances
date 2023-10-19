@@ -86,3 +86,27 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+// Total Months: Each nested array represents one month, so the total number of nested arrays in finances = total number of months
+var totalMonths = finances.length;
+
+// Net Total: loops through each array in finances and adds profit/losses to netTotal variable
+var netTotal = 0;
+finances.forEach(array => {
+  netTotal += array[1]
+});
+
+// Average Change:
+
+// Greatest Incr:
+
+// Greatest Decr:
+
+// Financial Report
+console.log("Financial Analysis");
+console.log("----------------");
+console.log("Total Months: " + totalMonths);
+console.log("Total: $" + netTotal);
+console.log("Average Change: " + avgChange);
+console.log("Greatest Increase in Profits/Losses: " + greatestIncrMonth + " $" + greatestIncrAmt);
+console.log("Greatest Decrease in Profits/Losses: " + greatestDecrMonth + " $" + greatestDecrAmt);
