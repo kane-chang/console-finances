@@ -96,11 +96,34 @@ finances.forEach(array => {
   netTotal += array[1]
 });
 
-// Average Change:
+// Average Change: Loops through finances array and totals the changes from month to month
+var totalChange = 0;
 
-// Greatest Incr:
+for (let i = 0; i < totalMonths - 1; i++) {
+  let change = finances[i + 1][1] - finances[i][1]
+  totalChange += change
+};
 
-// Greatest Decr:
+avgChange = (totalChange / (totalMonths - 1)).toFixed(2); //calculate average and round to 2 decimals
+
+// Greatest increase & decrease: Using the same for loop as before, compares the changes from month to month and reassigns greatest increase/decrease amount and month if it beats the previous assigned value
+var greatestIncrAmt = 0;
+var greatestIncrMonth = "";
+var greatestDecrAmt = 0;
+var greatestDecrMonth = "";
+
+
+for (let i = 0; i < totalMonths - 1; i++) {
+  let change = finances[i + 1][1] - finances[i][1]
+  if (change > greatestIncrAmt) {
+    greatestIncrAmt = change
+    greatestIncrMonth = finances[i + 1][0]
+  }
+  if (change < greatestDecrAmt) {
+    greatestDecrAmt = change
+    greatestDecrMonth = finances[i + 1][0]
+  }
+};
 
 // Financial Report
 console.log("Financial Analysis");
